@@ -3,14 +3,9 @@ services:
   web:
     build: .
     command: bundle exec bin/rails server -b 0.0.0.0 -p 3030
-    #command: unset PORT && env RUBY_DEBUG_OPEN=true bundle exec bin/rails server -b 0.0.0.0 -p 3030
-    #command: sleep 3600
-    environment:
-      - "NODE_ENV=development"
-      - "RAILS_ENV=development"
+    # command: unset PORT && env RUBY_DEBUG_OPEN=true bundle exec bin/rails server -b 0.0.0.0 -p 3030
     volumes:
       - .:/app
-      - ./bin:/app/bin
     ports:
       - "3030:3030"
       - "1234:1234"
@@ -30,28 +25,27 @@ services:
 
   css:
     build: .
-    #command: sleep 3600
     command: yarn watch:css
     volumes:
       - .:/app
     ports:
       - "3035:3035"
     environment:
-      - "NODE_ENV=development"
-      - "RAILS_ENV=development"
+      - "NODE_ENV=production"
+      - "RAILS_ENV=production"
     env_file:
       - .env
 
   js:
     build: .
-    command: yarn build --watch
+    command: env yarn build --watch
     volumes:
       - .:/app
     ports:
       - "3036:3036"
     environment:
-      - "NODE_ENV=development"
-      - "RAILS_ENV=development"
+      - "NODE_ENV=production"
+      - "RAILS_ENV=production"
     env_file:
       - .env
 

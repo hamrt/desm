@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema[7.2].define(version: 2025_01_19_154948) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "alignment_mapped_terms", force: :cascade do |t|

@@ -11,6 +11,8 @@ RUN apt-get update -qq \
     && rm -rf /var/lib/apt/lists/* \
     && npm rebuild node-sass
 
+#VOLUME /app
+
 # Specify everything will happen within the /app folder inside the container
 RUN mkdir /app
 WORKDIR /app
@@ -18,14 +20,17 @@ WORKDIR /app
 # Copy Gemfile from our current application to the /app container
 COPY Gemfile Gemfile.lock ./
 
+# Copy all the files from our current application to the /app
+COPY . ./
+
 # Install all the backend dependencies
 RUN bundle install
 
 # Install all the frontend dependencies
-RUN yarn
+RUN yarn install
 
-# Copy all the files from our current application to the /app
-COPY . .
+# # Copy all the files from our current application to the /app
+# COPY . ./app/
 
 # Add a script to be executed on every container start
 COPY init.sh /usr/bin/

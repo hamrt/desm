@@ -46,7 +46,7 @@
     "react-tabs": "^6.1.0",
     "redux": "^5.0.1",
     "rfs": "^10.0.0",
-    "sass": "^1.83.4",
+    "sass": "^1.85.1",
     "validator": "^13.12.0"
   },
   "version": "0.2.0",
@@ -59,12 +59,14 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "nodemon": "^3.1.9",
     "prettier": "^3.4.2",
+    "sass-loader": "^16.0.5",
     "stylelint": "^16.13.2",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-order": "^6.0.4",
-    "stylelint-selector-bem-pattern": "^4.0.1"
+    "stylelint-selector-bem-pattern": "^4.0.1",
+    "webpack": "^5.98.0"
   },
   "engines": {
     "node": ">=22.13.0",
